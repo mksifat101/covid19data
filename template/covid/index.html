@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Covid Data</title>
+  </head>
+  <body style="background-color: black;">
+    <h1 style="color: white; text-align: center; margin-top: 50px;"><span style="color: red;">COVID-19</span> WORLDWIDE DATA</h1>
+    <!-- {{response}} -->
+    <form action="" method="post" class="d-flex justify-content-center align-items-center" style="margin-top: 20px;">
+    {% csrf_token %}
+        <select name="selectcountry" class="form-control" style="width: 300px;">
+            {% for country in mylist %}
+            <option>{{country}}</option>
+            {%  endfor %}
+        </select>
+        <input type="submit" class="btn btn-danger" name="">
+    </form>
+    <h1 style="color: white; text-align: center; margin-top: 80px;">{{ selectcountry }}</h1>
+
+    <div class="d-flex justify-content-center align-items-center" style="margin-top: 20px;">
+        <div class="container" style="text-align: center; border-radius: 10px; height: 80px; width: 150px; background-color: skyblue;">
+            <h1>{{ new }}</h1>
+            <p>New</p>
+        </div>
+        <div class="container" style="background-color: yellow; text-align: center; border-radius: 10px; height: 80px; width: 150px;">
+            <h1>{{ active }}</h1>
+            <p>Active</p>
+        </div>
+        <div class="container" style="text-align: center; border-radius: 10px; height: 80px; width: 150px; background-color: red;">
+            <h1>{{ critical }}</h1>
+            <p>Critical</p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center" style="margin-top: 10px;">
+        <div class="container" style="background-color: green; text-align: center; border-radius: 10px; height: 80px; width: 150px;">
+            <h1>{{ recovered }}</h1>
+            <p>Recovered</p>
+        </div>
+        <div class="container" style="background-color: orange; text-align: center; border-radius: 10px; height: 80px; width: 150px;">
+            <h1>{{ total }}</h1>
+            <p>Total</p>
+        </div>
+        <div class="container" style="background-color: grey; text-align: center; border-radius: 10px; height: 80px; width: 150px;">
+            <h1>{{ total }}</h1>
+            <p>Total</p>
+        </div>
+    </div>
+</body>
+</html>
